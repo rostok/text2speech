@@ -7,7 +7,7 @@
     <Version>1.0.0.0</Version>
     <Authors>rostok</Authors>
     <Company>rostok - https://github.com/rostok/</Company>
-    <Product>AssemblyTest DLL</Product>
+    <Product>text2speech</Product>
     <Description>says the text</Description>
     <Copyright>Copyright 2021</Copyright>
     <PackageTags>text, speech, voice, synthesizer</PackageTags>

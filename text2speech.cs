@@ -21,7 +21,7 @@ class text2speech
 
     static void Help()
     {
-        Console.WriteLine("text2speech [options] text");
+        Console.WriteLine("text2speech [options] [text]");
         Console.WriteLine("options:");
         Console.WriteLine(" -h --help -?    : show this help");
         Console.WriteLine(" -l              : list installed voices");
@@ -62,27 +62,33 @@ class text2speech
 
     static void Main(string[] args)
     {
-        if (args.Length>0)
-        if (args.ToList().First()=="-h"||args.ToList().First()=="--help"||args.ToList().First()=="-?"||args.ToList().First()=="/?") {
+        if (args.ToList().FirstOrDefault()=="-h"||args.ToList().FirstOrDefault()=="--help"||args.ToList().FirstOrDefault()=="-?"||args.ToList().FirstOrDefault()=="/?") {
             Help();
             Environment.Exit(0);
         }
 
         synth = new SpeechSynthesizer();
         if (args.Length>0)
-        if (args.ToList().First()=="-l") {
+        if (args.ToList().FirstOrDefault()=="-l") {
             Voices();
             Environment.Exit(0);
         }
 
-        if (args.Length>0)
-        if (args.ToList().First()=="-v") {
+        if (args.ToList().FirstOrDefault()=="-v") {
             Voices(args.ToList().Skip(1).First());
             args = args.ToList().Skip(2).ToArray();
         }
 
-        string text = string.Join(" ", args);
         synth.SetOutputToDefaultAudioDevice();
-        synth.Speak(text);
+
+        string text = string.Join(" ", args).Trim();
+        if (text!="") {
+            synth.Speak(text);
+        }
+        else {
+            while ( (text = Console.ReadLine()) != null ) {
+                synth.Speak(text);
+            }
+        }
     }
 }
