@@ -1,9 +1,9 @@
 # text2speech
-a simple command line tool converting text to speech using microsoft build-in speech synthesizer
+a simple command line tool converting text to speech using microsoft built-in speech synthesizer
 
 # building
 use standard `dotnet build`
-alternatively, if you really like small exes, run `custom-single-exe-build.bat`. you may however edit filepaths to System.Speech.dll
+alternatively, if you really like small exes, run `custom-single-exe-build.bat`. you may however have to find and edit filepaths to System.Speech.dll
 
 # usage
 this help should explain everything
