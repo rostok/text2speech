@@ -16,4 +16,4 @@ options:
 ```
 providing no text in command line will read line after line from standard input. use ^Z or ^C to end this.
 
-if you will redirect text from files remember to match file code-page with console with `chcp` command.
+if you want to redirect text from files, remember to match the file's code-page with the console using `chcp` command.
